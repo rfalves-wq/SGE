@@ -1,0 +1,14 @@
+from django.db import models
+
+class Brand(models.Model):
+    name = models.CharField(max_length=500)
+    description = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['name']  # Ordena pelo nome do paciente
+
+    # Como o paciente será exibido no admin e no shell
+    def __str__(self):
+        return self.name
